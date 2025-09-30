@@ -1,0 +1,26 @@
+{
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.commandsToSkipShell": [],
+    "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/gcc.exe",
+    "workbench.colorTheme": "Default High Contrast",
+    "debug.onTaskErrors": "debugAnyway",
+    "editor.autoClosingBrackets": "always",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    // phần gợi ý code
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.hover.enabled": true,
+    "editor.parameterHints.enabled": false,
+    "editor.inlineSuggest.enabled": false,
+    "editor.wordBasedSuggestions": "currentDocument"
+}
