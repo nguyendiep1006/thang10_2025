@@ -42,25 +42,36 @@ class SinglyLinkedList {
         // Nếu pos < 0: chèn vào đầu
         // Nếu pos >= size: chèn vào cuối
         void insert_at(int pos, int x) {
+            // Tạo node mới chứa giá trị x
             Node *p = new Node(x);
+            
+            // Nếu danh sách rỗng thì node mới là head và tail
             if(!head) { head = tail = p; sz++; return; }
+            
+            // Nếu vị trí chèn <= 0 thì chèn vào đầu
             if(pos <= 0){
-                p->setNext(head);
-                head = p;
+                p->setNext(head); // Trỏ next của p tới head cũ
+                head = p; // Cập nhật head mới
                 sz++;
                 return;
             }
-            if(pos >= sz){
-                tail->setNext(p);
-                tail = p;
+            
+            // Nếu vị trí chèn >= size thì chèn vào cuối
+            if(pos >= sz){ 
+                tail->setNext(p); // Trỏ next của tail tới p
+                tail = p; // Cập nhật tail mới
                 sz++;
                 return;
             }
+            
+            // Duyệt tới vị trí pos-1
             Node *cur = head; int idx = 0;
             while(cur && idx < pos - 1){ cur = cur->getNext(); idx++; }
-            p->setNext(cur->getNext());
-            cur->setNext(p);
-            sz++;
+            
+            // Chèn node p vào sau node cur
+            p->setNext(cur->getNext()); // Trỏ next của p tới node sau cur
+            cur->setNext(p); // Trỏ next của cur tới p
+            sz++; // Tăng kích thước
         }
         
         // BÀI TẬP 2: Chèn x vào sau phần tử có giá trị val
@@ -78,17 +89,36 @@ class SinglyLinkedList {
         // BÀI TẬP 3: Chèn x vào trước phần tử có giá trị val
         // Nếu không tìm thấy val: chèn vào đầu
         void insert_before_value(int val, int x) {
+            // Tạo node mới chứa giá trị x
+ 
             Node *p = new Node(x);
+            
+            // Nếu danh sách rỗng thì node mới là head và tail
             if(!head){ head = tail = p; sz++; return; }
-            if(head->getData() == val){ p->setNext(head); head = p; sz++; return; }
-            Node *cur = head;
-            while(cur->getNext() && cur->getNext()->getData() != val) cur = cur->getNext();
-            if(!cur->getNext()){ // không tìm thấy
+            
+            // Nếu phần tử đầu tiên có giá trị val thì chèn vào đầu
+            if(head->getData() == val){ 
                 p->setNext(head);
                 head = p;
                 sz++;
                 return;
             }
+            
+            // Duyệt tìm node trước node có giá trị val
+            Node *cur = head;
+            while(cur->getNext() && cur->getNext()->getData() != val) {
+                cur = cur->getNext();
+            }
+            
+            // Nếu không tìm thấy val thì chèn vào đầu
+            if(!cur->getNext()){ 
+                p->setNext(head);
+                head = p;
+                sz++;
+                return;
+            }
+            
+            // Chèn p vào trước node có giá trị val
             p->setNext(cur->getNext());
             cur->setNext(p);
             sz++;

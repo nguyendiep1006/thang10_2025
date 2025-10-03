@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+       .conten{
+        color:white;
+        background: blue;
+        padding: 60px;
+        border-radius: 8px;
+        position: relative;
+      
+
+
+       }
+       .conten::before{
+        content:"";
+        display: block;
+        width: 120px;
+        height: 120px;
+        position: relative;
+        left:20px;
+        top:70px;
+        z-index: 0 ;
+       
+        border-radius: 50%;
+        background: black;
+       }
+       .conten::after{
+        content:"";
+
+       }
+       .conten .inner_conten::first-letter{
+        font-size: 40px;
+        z-index: 1;
+       }
+       .conten .inner_conten::first-line{
+        text-transform: uppercase;
+       }
+    </style>
+    <div class="conten">
+        <div class="inner_conten">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, nisi velit. Earum porro maxime temporibus dolore rem, expedita, iste aliquid ea illum molestias ratione itaque corrupti, totam nostrum vero explicabo.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam rerum cumque labore. Inventore dicta quibusdam natus provident vel quo aspernatur voluptatem rem, alias nostrum, ullam dolor quaerat, sunt laudantium atque? 
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. In amet, voluptatem, beatae corrupti eum voluptate voluptas hic accusantium ipsam quam vel quod nostrum omnis aut. Reiciendis ducimus pariatur corrupti magnam!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
