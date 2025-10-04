@@ -1,3 +1,38 @@
+/*
+* GIẢI THÍCH CODE:
+*
+* 1. Class Sinhvien:
+* - Chứa các thuộc tính: masv (mã sinh viên), hoten (họ tên), diemly (điểm lý)
+* - Constructor khởi tạo với mã và họ tên, mặc định là 0 và chuỗi rỗng
+* - Phương thức In() để hiển thị mã và họ tên
+* - set_Diemly() kiểm tra và gán điểm lý trong khoảng [0,10]
+* - get_Diemly() trả về điểm lý
+*
+* 2. Hàm in():
+* - Nhận tham chiếu đến list sinh viên
+* - Duyệt list bằng iterator và in thông tin từng sinh viên
+*
+* 3. Hàm main():
+* - Khai báo mảng 2 chiều a[10][100]
+* - Tạo list chứa list số nguyên (ls) và vector chứa list số nguyên (v)
+* 
+* - Tạo và thêm dữ liệu vào 2 list l1, l2:
+*   + l1: 100, 200
+*   + l2: 300, 500, 1000
+*
+* - Thêm l1, l2 vào ls
+* 
+* - Duyệt và in ls (list chứa các list):
+*   + Dùng iterator lồng nhau để duyệt từng list con
+*   + In các phần tử của từng list con
+*
+* - Phần code bị comment:
+*   + Tạo list sinh viên và thêm 3 sinh viên x,y,z
+*   + In danh sách sinh viên
+*   + Chèn thêm sinh viên t vào sau phần tử đầu tiên
+*   + In lại danh sách sau khi chèn
+*/
+ 
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -27,14 +62,25 @@ class Sinhvien
 		float get_Diemly() { return diemly; }		
 };
 
+// &l là tham chiếu đến một list chứa các đối tượng Sinhvien
+// Dùng tham chiếu để tránh sao chép toàn bộ list khi truyền vào hàm 
+// và cho phép thay đổi trực tiếp trên list gốc nếu cần
+// Hàm in() nhận tham số là một tham chiếu đến list chứa các đối tượng Sinhvien
+// Dùng tham chiếu & để:
+// - Tránh sao chép toàn bộ list khi truyền vào hàm (tối ưu bộ nhớ)
+// - Cho phép thay đổi trực tiếp trên list gốc nếu cần
 void in(list<Sinhvien> &l)
 {
-	for(list<Sinhvien>::iterator it = l.begin(); it!=l.end(); it++)
-	{
-	
-		cout<<"\n";
-		(*it).In();	
-	}
+    // Dùng iterator để duyệt qua từng phần tử trong list
+    // list<Sinhvien>::iterator khai báo một iterator cho list chứa Sinhvien
+    // begin() trả về iterator đến phần tử đầu tiên
+    // end() trả về iterator sau phần tử cuối cùng
+    for(list<Sinhvien>::iterator it = l.begin(); it!=l.end(); it++)
+    {
+        cout<<"\n"; // Xuống dòng trước khi in mỗi sinh viên
+        (*it).In(); // Dùng toán tử * để truy cập đối tượng Sinhvien
+                    // và gọi phương thức In() để hiển thị thông tin
+    }
 }
 int main()
 {
