@@ -5,8 +5,8 @@
 * - Chứa các thuộc tính: masv (mã sinh viên), hoten (họ tên), diemly (điểm lý)
 * - Constructor khởi tạo với mã và họ tên, mặc định là 0 và chuỗi rỗng
 * - Phương thức In() để hiển thị mã và họ tên
-* - set_Diemly() kiểm tra và gán điểm lý trong khoảng [0,10]
-* - get_Diemly() trả về điểm lý
+* - set_Diemly() kiểm tra và gán điểm lý theo kiểu T
+* - get_Diemly() trả về điểm lý kiểu T
 *
 * 2. Hàm in():
 * - Nhận tham chiếu đến list sinh viên
@@ -36,11 +36,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+template <class T>
 class Sinhvien
 {
 	int masv;
 	string hoten;
-	float diemly; //[0,10]
+	T diemly;
 	
 	public:
 		Sinhvien(int m=0, string ht="")
@@ -50,38 +51,25 @@ class Sinhvien
 		}
 		void In()
 		{
-			cout<<masv<<"\t"<<hoten;
+			cout<<masv<<"\t"<<hoten<<"\t"<<diemly;
 		}
-		void set_Diemly(float d)
+		void set_Diemly(T d)
 		{
-			if(d>=0 && d<=10)
-				diemly = d;
-			else
-				cout<<"Loi gan du lieu";
+			diemly = d;
 		}
-		float get_Diemly() { return diemly; }		
+		T get_Diemly() { return diemly; }		
 };
 
-// &l là tham chiếu đến một list chứa các đối tượng Sinhvien
-// Dùng tham chiếu để tránh sao chép toàn bộ list khi truyền vào hàm 
-// và cho phép thay đổi trực tiếp trên list gốc nếu cần
-// Hàm in() nhận tham số là một tham chiếu đến list chứa các đối tượng Sinhvien
-// Dùng tham chiếu & để:
-// - Tránh sao chép toàn bộ list khi truyền vào hàm (tối ưu bộ nhớ)
-// - Cho phép thay đổi trực tiếp trên list gốc nếu cần
-void in(list<Sinhvien> &l)
+template <class T>
+void in(list<Sinhvien<T>> &l)
 {
-    // Dùng iterator để duyệt qua từng phần tử trong list
-    // list<Sinhvien>::iterator khai báo một iterator cho list chứa Sinhvien
-    // begin() trả về iterator đến phần tử đầu tiên
-    // end() trả về iterator sau phần tử cuối cùng
-    for(list<Sinhvien>::iterator it = l.begin(); it!=l.end(); it++)
+    for(typename list<Sinhvien<T>>::iterator it = l.begin(); it!=l.end(); it++)
     {
-        cout<<"\n"; // Xuống dòng trước khi in mỗi sinh viên
-        (*it).In(); // Dùng toán tử * để truy cập đối tượng Sinhvien
-                    // và gọi phương thức In() để hiển thị thông tin
+        cout<<"\n";
+        (*it).In();
     }
 }
+
 int main()
 {
 	int a[10][100];
@@ -106,25 +94,27 @@ int main()
 			cout<<*it2<<"\t";
 	}
 	
-//	list<Sinhvien> l;
-//	Sinhvien x(123,"Nguyen Van X");
-//	Sinhvien y(124,"Nguyen Thi Y");
-//	Sinhvien z(124,"Nguyen Thi z");
+//	list<Sinhvien<float>> l;
+//	Sinhvien<float> x(123,"Nguyen Van X");
+//	Sinhvien<float> y(124,"Nguyen Thi Y"); 
+//	Sinhvien<float> z(124,"Nguyen Thi Z");
+//	x.set_Diemly(8.5);
+//	y.set_Diemly(7.5);
+//	z.set_Diemly(9.0);
 //	l.push_back(x);
 //	l.push_back(y);
 //	l.push_back(z);
 //	
 //	in(l);
-//	list<Sinhvien>::iterator it = l.begin();
+//	list<Sinhvien<float>>::iterator it = l.begin();
 //	cout<<"\n*it";
 //	(*it).In();
 //	
-//	Sinhvien t(124,"Nguyen Van T");
+//	Sinhvien<float> t(124,"Nguyen Van T");
+//	t.set_Diemly(8.0);
 //	it++;
 //	l.insert(it, t);
-//	//l.pop_front();
 //	cout<<"\n List sau khi chen phan tu:";
 //	in(l);
-//	
 	
 }
