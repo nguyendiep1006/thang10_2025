@@ -49,113 +49,127 @@ class LinkedList{
             cout << endl;
         }
         
+        // Hàm xóa phần tử đầu tiên của danh sách
+        // Trả về true nếu xóa thành công, false nếu danh sách rỗng
         bool deleteHead(){
-            if (head == NULL) {
+            if (head == NULL) { // Kiểm tra danh sách rỗng
                 return false;
             }
             
-            Node* temp = head;
-            head = head->getNext();
+            Node* temp = head; // Lưu lại node đầu để giải phóng bộ nhớ
+            head = head->getNext(); // Cập nhật head thành node kế tiếp
             
-            if (head == NULL) {
-                tail = NULL;
+            if (head == NULL) { // Nếu sau khi xóa danh sách rỗng
+                tail = NULL; // Cập nhật tail = NULL
             }
             
-            delete temp;
+            delete temp; // Giải phóng bộ nhớ của node cũ
             return true;
         }
         
+        // Hàm xóa phần tử cuối cùng của danh sách
+        // Trả về true nếu xóa thành công, false nếu danh sách rỗng
         bool deleteTail(){
-            if (head == NULL) {
+            if (head == NULL) { // Kiểm tra danh sách rỗng
                 return false;
             }
             
-            if (head == tail) {
+            if (head == tail) { // Nếu danh sách chỉ có 1 phần tử
                 delete head;
                 head = tail = NULL;
                 return true;
             }
             
             Node* current = head;
+            // Tìm node trước tail
             while (current->getNext() != tail) {
                 current = current->getNext();
             }
             
-            delete tail;
-            tail = current;
+            delete tail; // Giải phóng bộ nhớ của tail cũ
+            tail = current; // Cập nhật tail mới
             tail->setNext(NULL);
             return true;
         }
         
+        // Hàm xóa phần tử đầu tiên có giá trị value
+        // Trả về true nếu tìm thấy và xóa thành công, false nếu không tìm thấy
         bool deleteValue(int value){
-            if (head == NULL) {
+            if (head == NULL) { // Kiểm tra danh sách rỗng
                 return false;
             }
             
-            if (head->getElem() == value) { // Sử dụng getElem
+            if (head->getElem() == value) { // Nếu phần tử cần xóa ở đầu
                 return deleteHead();
             }
             
             Node* current = head;
-            while (current->getNext() != NULL && current->getNext()->getElem() != value) { // Sử dụng getElem
+            // Tìm node trước node cần xóa
+            while (current->getNext() != NULL && current->getNext()->getElem() != value) {
                 current = current->getNext();
             }
             
-            if (current->getNext() == NULL) {
+            if (current->getNext() == NULL) { // Không tìm thấy giá trị
                 return false;
             }
             
-            Node* temp = current->getNext();
-            current->setNext(temp->getNext());
+            Node* temp = current->getNext(); // Node cần xóa
+            current->setNext(temp->getNext()); // Cập nhật liên kết
             
-            if (temp == tail) {
+            if (temp == tail) { // Nếu xóa node cuối
                 tail = current;
             }
             
-            delete temp;
+            delete temp; // Giải phóng bộ nhớ
             return true;
         }
         
+        // Hàm xóa tất cả các phần tử có giá trị value
+        // Trả về số lượng phần tử đã xóa
         int deleteAllValue(int value){
             int count = 0;
-            while (deleteValue(value)) {
+            while (deleteValue(value)) { // Xóa cho đến khi không còn value
                 count++;
             }
             return count;
         }
         
+        // Hàm xóa phần tử tại vị trí position (đếm từ 0)
+        // Trả về true nếu xóa thành công, false nếu vị trí không hợp lệ
         bool deleteAt(int position){
-            if (head == NULL || position < 0) {
+            if (head == NULL || position < 0) { // Kiểm tra điều kiện
                 return false;
             }
             
-            if (position == 0) {
+            if (position == 0) { // Nếu xóa phần tử đầu
                 return deleteHead();
             }
             
             Node* current = head;
             int currentPos = 0;
             
+            // Tìm node trước vị trí cần xóa
             while (current != NULL && currentPos < position - 1) {
                 current = current->getNext();
                 currentPos++;
-            }
+            }   
             
-            if (current == NULL || current->getNext() == NULL) {
+            if (current == NULL || current->getNext() == NULL) { // Vị trí không hợp lệ
                 return false;
             }
             
-            Node* temp = current->getNext();
-            current->setNext(temp->getNext());
+            Node* temp = current->getNext(); // Node cần xóa
+            current->setNext(temp->getNext()); // Cập nhật liên kết
             
-            if (temp == tail) {
+            if (temp == tail) { // Nếu xóa node cuối
                 tail = current;
             }
             
-            delete temp;
+            delete temp; // Giải phóng bộ nhớ
             return true;
         }
         
+        // Hàm tạo danh sách mẫu để test
         void createSampleList(){
             addTail(10);
             addTail(25);
@@ -165,7 +179,6 @@ class LinkedList{
             addTail(25);
             addTail(5);
         }
-};
 
 int main(){
     LinkedList list;

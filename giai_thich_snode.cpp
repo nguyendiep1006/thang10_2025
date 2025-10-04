@@ -45,7 +45,7 @@ class snode
         /*
          * CONSTRUCTOR CÓ THAM SỐ (HÀM TẠO CÓ THAM SỐ)
          * 
-         * Tạo một node mới với:
+         * Tạo một node mới với:  
          * - elem: nhận giá trị x
          * - next: nhận con trỏ Next (mặc định là 0 nếu không truyền vào)
          * 
@@ -59,7 +59,7 @@ class snode
             next = Next;   // Gán con trỏ Next vào next
         }
         
-        /*
+        /* 
          * HÀM GETTER - LẤY GIÁ TRỊ ELEM
          * 
          * Trả về tham chiếu (&) đến elem

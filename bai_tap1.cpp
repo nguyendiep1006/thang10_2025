@@ -6,17 +6,32 @@ class Node{
         int data;
         Node* next;
     public:
+        // Hàm khởi tạo Node với tham số value
+        // value: giá trị số nguyên cần lưu trong node
+        // Khởi tạo data = value và next = NULL để tránh trỏ đến vùng nhớ không xác định
         Node(int value): data(value), next(NULL){
         }
+
+        // Hàm trả về con trỏ next trỏ đến node tiếp theo
+        // Trả về: con trỏ kiểu Node* trỏ đến node kế tiếp trong danh sách
         Node* getNext(){
             return next;
         }
+
+        // Hàm trả về giá trị data được lưu trong node
+        // Trả về: giá trị số nguyên được lưu trong node
         int getData(){
             return data;
         }
+
+        // Hàm cập nhật con trỏ next
+        // n: con trỏ kiểu Node* trỏ đến node mới sẽ là node kế tiếp
         void setNext(Node* n){
             next = n;
         }
+
+        // Hàm cập nhật giá trị data
+        // value: giá trị số nguyên mới cần gán cho data
         void setData(int value){
             data = value;
         }

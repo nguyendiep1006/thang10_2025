@@ -8,7 +8,7 @@
 #ifndef __slidt_ite__cpp
 #define __slidt_ite__cpp
 #include"snode.cpp"
-
+ 
 /*
  * LỚP TEMPLATE SLIST_ITE (SINGLY LINKED LIST ITERATOR)
  * 

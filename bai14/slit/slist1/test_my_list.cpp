@@ -96,7 +96,7 @@ int main()
  * 
  * 1. slist<int> s: Tạo danh sách liên kết đơn
  * 2. s.push_back(value): Thêm phần tử vào cuối
- * 3. s.push_front(value): Thêm phần tử vào đầu 
+ * 3. s.push_front(value): Thêm phần tử vào đầu
  * 4. s.begin(): Iterator trỏ tới phần tử đầu
  * 5. s.end(): Iterator trỏ tới vị trí sau phần tử cuối
  * 6. *it: Lấy giá trị phần tử mà iterator đang trỏ
