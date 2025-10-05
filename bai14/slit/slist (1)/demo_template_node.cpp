@@ -1,4 +1,4 @@
-/*
+ /*
  * =====================================================================================
  * FILE: demo_template_node.cpp
  * MÔ TẢ: Demo sử dụng template class Node với các kiểu dữ liệu khác nhau

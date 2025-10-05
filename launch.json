@@ -20,6 +20,27 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "Run Ung Dung Sinh Vien",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\bai14\\slit\\slist (1)\\ung_dung_sinhvien.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}\\bai14\\slit\\slist (1)",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build ung dung sinh vien"
         }
     ]
 }

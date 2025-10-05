@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  * FILE: sinhvien.cpp
- * MÔ TẢ: Implementation file cho class SinhVien
+ * MÔ TẢ:   file cho class SinhVien
  * TÁC GIẢ: AI Assistant
  * NGÀY TẠO: 2025
  * =====================================================================================

@@ -88,7 +88,7 @@ class SinhVien{
 		void setNam(int nam);       // Đặt năm sinh
 		void setGioiTinh(string gt); // Đặt giới tính
 		void setQueQuan(string qq); // Đặt quê quán
-		
+		 
 		// ==================== PHƯƠNG THỨC CHỨC NĂNG ====================
 		
 		// Kiểm tra tính hợp lệ của ngày sinh (năm nhuận, số ngày theo tháng...)
