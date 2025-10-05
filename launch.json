@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run bai1.exe",
+            "name": "Run Current C++ File",
             "type": "cppdbg",
             "request": "launch",
-            "program": "C:\\hoccplus\\.vscode\\bai1.exe",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "C:\\hoccplus\\.vscode",
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
@@ -19,7 +19,104 @@
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
-            ]
+            ],
+            "preLaunchTask": "C/C++: g++.exe build active file"
+        },
+        {
+            "name": "Run Current C++ File (Simple)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\run_cpp.bat",
+            "args": ["${fileBasename}"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "console": "externalTerminal"
+        },
+        {
+            "name": "Run Quan Ly Nhan Vien",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\quan_ly_nhan_vien.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build quan ly nhan vien"
+        },
+        {
+            "name": "Run Bai1",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\bai1.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build bai1"
+        },
+        {
+            "name": "Run Bai2",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\bai2.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build bai2"
+        },
+        {
+            "name": "Run Bai3",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\bai3.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build bai3"
         },
         {
             "name": "Run Ung Dung Sinh Vien",

@@ -75,8 +75,8 @@ public:
     void xuatThongTin() const;
     bool kiemTraNgaySinh() const;
     int tinhTuoi() const;
-    bool operator==(const SinhVien &sv) const;
-};
+    bool operator==(const SinhVien &sv) const; // Toán tử so sánh bằng để kiểm tra hai sinh viên có giống nhau không
+ };
 
 // Khai báo trước class Node
 class Node {
@@ -121,9 +121,19 @@ public:
     ~UngDungSinhVien();
     
     // Copy constructor
+    // Copy constructor - tạo một bản sao của đối tượng UngDungSinhVien
+    // Tham số app là tham chiếu hằng đến đối tượng cần sao chép
+    // Được gọi khi khởi tạo một đối tượng mới từ đối tượng đã tồn tại
+    // Ví dụ: UngDungSinhVien app2(app1);
     UngDungSinhVien(const UngDungSinhVien &app);
     
     // Assignment operator
+    // Toán tử gán (assignment operator) - gán dữ liệu từ một đối tượng UngDungSinhVien khác
+    // Tham số app là tham chiếu hằng đến đối tượng cần sao chép dữ liệu
+    // Trả về tham chiếu đến đối tượng hiện tại (*this) để hỗ trợ phép gán liên tiếp
+    // Ví dụ: app1 = app2 = app3;
+    // Được gọi khi thực hiện phép gán giữa 2 đối tượng đã tồn tại
+    // Ví dụ: app1 = app2;
     UngDungSinhVien& operator=(const UngDungSinhVien &app);
     
     // ==================== CÁC CHỨC NĂNG CHÍNH YÊU CẦU ====================
