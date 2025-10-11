@@ -13,7 +13,7 @@
       "externalConsole": true,
       "MIMode": "gdb",
       "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
-      "preLaunchTask": "build current file",
+      "preLaunchTask": "C/C++: g++.exe build active file",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
@@ -23,25 +23,25 @@
       ]
     },
     {
-      "name": "Run Quan Ly Nhan Vien",
+      "name": "Run sinhvien_template_fixed.cpp",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}\\quan_ly_nhan_vien.exe",
+      "program": "${workspaceFolder}\\bai14\\slit\\slist (1)\\sinhvien_template_fixed.exe",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}\\bai14\\slit\\slist (1)",
       "environment": [],
       "externalConsole": true,
       "MIMode": "gdb",
       "miDebuggerPath": "C:\\msys64\\ucrt64\\bin\\gdb.exe",
-      "preLaunchTask": "build quan ly nhan vien",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
         }
-      ]
+      ],
+      "preLaunchTask": "Build sinhvien_template_fixed"
     },
     {
       "name": "C/C++ Runner: Debug Session",
