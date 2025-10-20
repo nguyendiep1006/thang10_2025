@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài Tập Lớn - Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta name="color-scheme" content="light dark" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="#home" class="logo">Cafe</a>
+            <nav id="navMenu" class="nav-menu">
+                <a href="#home">Trang chủ</a>
+                <a href="#menu">Sản phẩm</a>
+                <a href="#cart">Giỏ hàng</a>
+                <a href="#features">Tính năng</a>
+                <a href="#notes">Ghi chú</a>
+                <a href="#contact">Liên hệ</a>
+                <a href="#admin">Admin</a>
+            </nav>
+            <div class="actions">
+                <button id="authOpen" class="btn">Đăng nhập</button>
+                <span id="userBadge" class="pill" style="display:none"></span>
+                <button id="themeToggle" class="btn icon" aria-label="Chuyển chế độ sáng/tối">🌙</button>
+                <button id="menuToggle" class="btn icon" aria-label="Mở menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero section">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Quản lý & bán hàng Cafe</h1>
+                    <p>Sản phẩm, giỏ hàng, tính tiền, lưu đơn. Hỗ trợ mobile và dark mode.</p>
+                    <div class="hero-cta">
+                        <a href="#features" class="btn primary">Khám phá</a>
+                        <a href="#contact" class="btn">Liên hệ</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="menu" class="section">
+            <div class="container">
+                <h2 class="section-title">Menu đồ uống</h2>
+                <div id="productGrid" class="grid product-grid"></div>
+            </div>
+        </section>
+
+        <section id="cart" class="section alt">
+            <div class="container">
+                <h2 class="section-title">Giỏ hàng</h2>
+                <div class="cart">
+                    <div class="cart-items">
+                        <ul id="cartList" class="cart-list"></ul>
+                    </div>
+                    <aside class="cart-summary">
+                        <div class="summary-row"><span>Tạm tính</span><span id="subTotal">0₫</span></div>
+                        <div class="summary-row"><span>Thuế (8%)</span><span id="tax">0₫</span></div>
+                        <div class="summary-row total"><span>Tổng cộng</span><span id="grandTotal">0₫</span></div>
+                        <button id="checkoutBtn" class="btn primary" style="width:100%">Đặt hàng</button>
+                    </aside>
+                </div>
+
+                <form id="orderForm" class="form mt-2" style="display:none" novalidate>
+                    <h3>Thông tin đặt hàng</h3>
+                    <div class="form-row">
+                        <label for="customer">Tên khách hàng</label>
+                        <input id="customer" required placeholder="VD: Nguyễn Văn A" />
+                        <small class="error" id="err-customer"></small>
+                    </div>
+                    <div class="form-row">
+                        <label for="phone">Số điện thoại</label>
+                        <input id="phone" required placeholder="VD: 0912345678" />
+                        <small class="error" id="err-phone"></small>
+                    </div>
+                    <div class="form-row">
+                        <label for="address">Địa chỉ</label>
+                        <input id="address" required placeholder="Số nhà, đường, quận/huyện" />
+                        <small class="error" id="err-address"></small>
+                    </div>
+                    <button type="submit" class="btn primary">Xác nhận đặt hàng</button>
+                    <p id="orderResult" class="mt-2" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title">Tính năng</h2>
+                <div class="grid features-grid">
+                    <article class="feature">
+                        <h3>Responsive</h3>
+                        <p>Tự điều chỉnh trên mọi thiết bị với CSS Grid/Flexbox.</p>
+                    </article>
+                    <article class="feature">
+                        <h3>Dark Mode</h3>
+                        <p>Lưu lựa chọn giao diện vào localStorage.</p>
+                    </article>
+                    <article class="feature">
+                        <h3>Menu Mobile</h3>
+                        <p>Đóng/mở nhanh, tự động đóng khi chọn mục.</p>
+                    </article>
+                    <article class="feature">
+                        <h3>Form Validate</h3>
+                        <p>Kiểm tra dữ liệu cơ bản ở phía client.</p>
+                    </article>
+                </div>
+
+                <div class="tabs">
+                    <div class="tab-list" role="tablist">
+                        <button class="tab active" data-tab="tab1" role="tab">Hiệu năng</button>
+                        <button class="tab" data-tab="tab2" role="tab">Khả năng mở rộng</button>
+                        <button class="tab" data-tab="tab3" role="tab">Trải nghiệm</button>
+                    </div>
+                    <div class="tab-panels">
+                        <div id="tab1" class="tab-panel active" role="tabpanel">Tối ưu tải.</div>
+                        <div id="tab2" class="tab-panel" role="tabpanel">Mã tách biệt.</div>
+                        <div id="tab3" class="tab-panel" role="tabpanel">UI rõ ràng.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="section alt">
+            <div class="container">
+                <h2 class="section-title">Admin - Quản lý</h2>
+
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <h3>Quản lý sản phẩm</h3>
+                        <form id="productForm" class="form" autocomplete="off">
+                            <input type="hidden" id="prodId" />
+                            <div class="form-row">
+                                <label for="prodName">Tên đồ uống</label>
+                                <input id="prodName" placeholder="Ví dụ: Americano" required />
+                                <small class="error" id="err-prodName"></small>
+                            </div>
+                            <div class="form-row">
+                                <label for="prodPrice">Giá (đ)</label>
+                                <input id="prodPrice" type="number" min="0" step="1000" placeholder="Ví dụ: 30000" required />
+                                <small class="error" id="err-prodPrice"></small>
+                            </div>
+                            <div class="form-row">
+                                <button class="btn primary" type="submit">Lưu sản phẩm</button>
+                                <button class="btn" type="button" id="resetProd">Reset</button>
+                            </div>
+                            <p id="prodResult" class="mt-2" role="status" aria-live="polite"></p>
+                        </form>
+
+                        <div class="table-wrap">
+                            <table class="table" id="productTable">
+                                <thead>
+                                    <tr>
+                                        <th>Mã</th>
+                                        <th>Tên</th>
+                                        <th>Giá</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3>Đơn hàng gần đây</h3>
+                        <div class="table-wrap">
+                            <table class="table" id="orderTable">
+                                <thead>
+                                    <tr>
+                                        <th>Mã đơn</th>
+                                        <th>Khách</th>
+                                        <th>SĐT</th>
+                                        <th>Tổng</th>
+                                        <th>Thời gian</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="notes" class="section alt">
+            <div class="container">
+                <h2 class="section-title">Ghi chú (LocalStorage)</h2>
+                <form id="noteForm" class="note-form" autocomplete="off">
+                    <input id="noteInput" type="text" placeholder="Nhập ghi chú..." aria-label="Ghi chú" required />
+                    <button type="submit" class="btn primary">Thêm</button>
+                </form>
+                <ul id="noteList" class="note-list"></ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Liên hệ</h2>
+                <form id="contactForm" class="form" novalidate>
+                    <div class="form-row">
+                        <label for="name">Họ và tên</label>
+                        <input id="name" name="name" type="text" placeholder="VD: Nguyễn Văn A" required />
+                        <small class="error" id="err-name"></small>
+                    </div>
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="email@domain.com" required />
+                        <small class="error" id="err-email"></small>
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Nội dung</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Lời nhắn của bạn" required></textarea>
+                        <small class="error" id="err-message"></small>
+                    </div>
+                    <button type="submit" class="btn primary">Gửi</button>
+                    <p id="contactResult" class="mt-2" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <button id="backToTop" class="back-to-top" aria-label="Lên đầu trang">↑</button>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Bài Tập Lớn Web. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal" aria-hidden="true">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+            <button class="modal-close btn icon" data-close aria-label="Đóng">✕</button>
+            <h3 id="authTitle">Tài khoản</h3>
+            <div class="tabs auth-tabs">
+                <div class="tab-list" role="tablist">
+                    <button class="tab active" data-tab="login" role="tab">Đăng nhập</button>
+                    <button class="tab" data-tab="register" role="tab">Đăng ký</button>
+                </div>
+                <div class="tab-panels">
+                    <div id="login" class="tab-panel active" role="tabpanel">
+                        <form id="loginForm" class="form" novalidate>
+                            <div class="form-row">
+                                <label for="loginEmail">Email</label>
+                                <input id="loginEmail" type="email" required placeholder="email@domain.com" />
+                                <small class="error" id="err-login-email"></small>
+                            </div>
+                            <div class="form-row">
+                                <label for="loginPassword">Mật khẩu</label>
+                                <input id="loginPassword" type="password" required placeholder="••••••••" />
+                                <small class="error" id="err-login-password"></small>
+                            </div>
+                            <button type="submit" class="btn primary">Đăng nhập</button>
+                            <p id="loginResult" class="mt-2" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                    <div id="register" class="tab-panel" role="tabpanel">
+                        <form id="registerForm" class="form" novalidate>
+                            <div class="form-row">
+                                <label for="regName">Họ và tên</label>
+                                <input id="regName" required placeholder="VD: Nguyễn Văn A" />
+                                <small class="error" id="err-reg-name"></small>
+                            </div>
+                            <div class="form-row">
+                                <label for="regEmail">Email</label>
+                                <input id="regEmail" type="email" required placeholder="email@domain.com" />
+                                <small class="error" id="err-reg-email"></small>
+                            </div>
+                            <div class="form-row">
+                                <label for="regPassword">Mật khẩu</label>
+                                <input id="regPassword" type="password" required placeholder="Tối thiểu 6 ký tự" />
+                                <small class="error" id="err-reg-password"></small>
+                            </div>
+                            <button type="submit" class="btn primary">Tạo tài khoản</button>
+                            <p id="regResult" class="mt-2" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Điều hướng yêu cầu đăng nhập: nếu chưa đăng nhập -> mở modal + về Trang chủ
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const session = (function(){ try { return JSON.parse(localStorage.getItem('session')||'null'); } catch { return null; } })();
+                const home = document.getElementById('home');
+                const target = document.querySelector(a.getAttribute('href'));
+                e.preventDefault();
+                if (!session) {
+                    document.getElementById('authOpen')?.click();
+                    home?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
+
+
